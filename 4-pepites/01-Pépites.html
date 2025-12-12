@@ -1,0 +1,1447 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Pépites</title><link rel="stylesheet" href="../assets/style.css" /></head>
+<body>
+<header class="site-header"><div class="container header-inner"><a class="logo" href="../index.html">← Index</a><h1 class="site-title">4 · Pepites</h1></div></header>
+<main class="container"><article><!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pépites</title>
+    <link rel="stylesheet" href="Pépites.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Styles générés automatiquement - Lightbox Generator */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+
+.titles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.title-item {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid #2c3e50;
+}
+
+.title-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.title-link {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    height: 100%;
+}
+
+.title-number {
+    display: inline-block;
+    background-color: #2c3e50;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.title-text {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #2c3e50;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.lightbox-content {
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.lightbox-header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.lightbox-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    flex-grow: 1;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: opacity 0.3s;
+    margin-left: 20px;
+    flex-shrink: 0;
+}
+
+.close-btn:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+.lightbox-body {
+    padding: 30px;
+    overflow-y: auto;
+    text-align: justify;
+    flex-grow: 1;
+}
+
+.lightbox-body p {
+    margin-bottom: 15px;
+    text-align: justify;
+    line-height: 1.3;
+    font-size: 1.2em;
+}
+
+.lightbox-body .no-content {
+    color: #666;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+.lightbox-body ul, .lightbox-body ol {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.lightbox-body li {
+    margin-bottom: 5px;
+}
+
+.content-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+/* Bouton Top */
+.top-btn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.top-btn:hover {
+    background-color: #2c3e50;
+    transform: scale(1.1);
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .titles-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .lightbox-content {
+        width: 95%;
+        max-height: 85vh;
+    }
+    
+    .lightbox-header h2 {
+        font-size: 1.2em;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    .lightbox-body {
+        padding: 20px;
+    }
+    
+    .title-text {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+    
+    .lightbox-body {
+        padding: 15px;
+    }
+    
+    .top-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        padding: 12px;
+    }
+    
+    .title-link {
+        padding: 15px;
+    }
+    
+    .title-text {
+        font-size: 1em;
+    }
+    
+    .lightbox-header {
+        padding: 15px;
+    }
+    
+    .lightbox-header h2 {
+        font-size: 1.1em;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pépites</h1>
+            
+        </header>
+        
+        <main>
+            <div class="titles-container">
+                <div class="title-item">
+                    <a href="#lightbox-1" class="title-link" onclick="openLightbox(1); return false;">
+                        <span class="title-number">01</span>
+                        <span class="title-text">Romains 8:19</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-2" class="title-link" onclick="openLightbox(2); return false;">
+                        <span class="title-number">02</span>
+                        <span class="title-text">J&#x27;espère et j&#x27;ai confiance</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-3" class="title-link" onclick="openLightbox(3); return false;">
+                        <span class="title-number">03</span>
+                        <span class="title-text">La vision que nous avons aujourd&#x27;hui</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-4" class="title-link" onclick="openLightbox(4); return false;">
+                        <span class="title-number">04</span>
+                        <span class="title-text">Les saints jugeront la terre...prendre le contrôle</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-5" class="title-link" onclick="openLightbox(5); return false;">
+                        <span class="title-number">05</span>
+                        <span class="title-text">Le combat s&#x27;annonce chaud et acharné</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-6" class="title-link" onclick="openLightbox(6); return false;">
+                        <span class="title-number">06</span>
+                        <span class="title-text">Pourchassé et persécuté</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-7" class="title-link" onclick="openLightbox(7); return false;">
+                        <span class="title-number">07</span>
+                        <span class="title-text">Ils vont à sa rencontre - leur choix à eux</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-8" class="title-link" onclick="openLightbox(8); return false;">
+                        <span class="title-number">08</span>
+                        <span class="title-text">Reprendre le pouvoir</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-9" class="title-link" onclick="openLightbox(9); return false;">
+                        <span class="title-number">09</span>
+                        <span class="title-text">Attendez que ces Sept Tonnerres fassent entendre</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-10" class="title-link" onclick="openLightbox(10); return false;">
+                        <span class="title-number">10</span>
+                        <span class="title-text">Réveil de l&#x27;Épouse</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-11" class="title-link" onclick="openLightbox(11); return false;">
+                        <span class="title-number">11</span>
+                        <span class="title-text">Besoin de savoir ce qu&#x27;on dit les Sept Tonnerres</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-12" class="title-link" onclick="openLightbox(12); return false;">
+                        <span class="title-number">12</span>
+                        <span class="title-text">Quand et comment exécuter</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-13" class="title-link" onclick="openLightbox(13); return false;">
+                        <span class="title-number">13</span>
+                        <span class="title-text">J&#x27;ai attendu avec impatience</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-14" class="title-link" onclick="openLightbox(14); return false;">
+                        <span class="title-number">14</span>
+                        <span class="title-text">Ne crains  point petit troupeau</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-15" class="title-link" onclick="openLightbox(15); return false;">
+                        <span class="title-number">15</span>
+                        <span class="title-text">La Parole, seul but: la Rédemption</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-16" class="title-link" onclick="openLightbox(16); return false;">
+                        <span class="title-number">16</span>
+                        <span class="title-text">Ce monde réclame sa rédemption</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-17" class="title-link" onclick="openLightbox(17); return false;">
+                        <span class="title-number">17</span>
+                        <span class="title-text">Jamais eu un temps...fils de Dieu manifestés</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-18" class="title-link" onclick="openLightbox(18); return false;">
+                        <span class="title-number">18</span>
+                        <span class="title-text">De tous cotés ils attendent...où sont ces gens?</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-19" class="title-link" onclick="openLightbox(19); return false;">
+                        <span class="title-number">19</span>
+                        <span class="title-text">Dispensation de l&#x27;adoption</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-20" class="title-link" onclick="openLightbox(20); return false;">
+                        <span class="title-number">20</span>
+                        <span class="title-text">Accomplir à travers l&#x27;Épouse</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-21" class="title-link" onclick="openLightbox(21); return false;">
+                        <span class="title-number">21</span>
+                        <span class="title-text">La Parole est dans l&#x27;Épouse</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-22" class="title-link" onclick="openLightbox(22); return false;">
+                        <span class="title-number">22</span>
+                        <span class="title-text">Adam a perdu les droits à la vie</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-23" class="title-link" onclick="openLightbox(23); return false;">
+                        <span class="title-number">23</span>
+                        <span class="title-text">Ses sujets rachetés</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-24" class="title-link" onclick="openLightbox(24); return false;">
+                        <span class="title-number">24</span>
+                        <span class="title-text">Avoir l&#x27;oeil perçant de l&#x27;aigle</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-25" class="title-link" onclick="openLightbox(25); return false;">
+                        <span class="title-number">25</span>
+                        <span class="title-text">Donnez à Dieu des hommes vaillants</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-26" class="title-link" onclick="openLightbox(26); return false;">
+                        <span class="title-number">26</span>
+                        <span class="title-text">La force terrestre</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-27" class="title-link" onclick="openLightbox(27); return false;">
+                        <span class="title-number">27</span>
+                        <span class="title-text">Quelque part dans ce monde</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-28" class="title-link" onclick="openLightbox(28); return false;">
+                        <span class="title-number">28</span>
+                        <span class="title-text">Dieu et la création attendent</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-29" class="title-link" onclick="openLightbox(29); return false;">
+                        <span class="title-number">29</span>
+                        <span class="title-text">C&#x27;est la conduite qui met en position</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-30" class="title-link" onclick="openLightbox(30); return false;">
+                        <span class="title-number">30</span>
+                        <span class="title-text">Réunir toutes choses: attendre la manifestation des fils</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-31" class="title-link" onclick="openLightbox(31); return false;">
+                        <span class="title-number">31</span>
+                        <span class="title-text">Le mystère de sa volonté</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-32" class="title-link" onclick="openLightbox(32); return false;">
+                        <span class="title-number">32</span>
+                        <span class="title-text">Nous sommes au seuil/parole endossée</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-33" class="title-link" onclick="openLightbox(33); return false;">
+                        <span class="title-number">33</span>
+                        <span class="title-text">Rien n&#x27;est caché à l&#x27;Église qui hérite de la terre</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-34" class="title-link" onclick="openLightbox(34); return false;">
+                        <span class="title-number">34</span>
+                        <span class="title-text">Ce monde réclame sa rédemption</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-35" class="title-link" onclick="openLightbox(35); return false;">
+                        <span class="title-number">35</span>
+                        <span class="title-text">Cacherai-je à Abraham-héritier du monde</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-36" class="title-link" onclick="openLightbox(36); return false;">
+                        <span class="title-number">36</span>
+                        <span class="title-text">Se fera en dehors des mouvements organisés</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-37" class="title-link" onclick="openLightbox(37); return false;">
+                        <span class="title-number">37</span>
+                        <span class="title-text">Ce que ce dernier Message serait</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-38" class="title-link" onclick="openLightbox(38); return false;">
+                        <span class="title-number">38</span>
+                        <span class="title-text">Ce qu&#x27;il nous faut au capitole</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-39" class="title-link" onclick="openLightbox(39); return false;">
+                        <span class="title-number">39</span>
+                        <span class="title-text">Le caractère est une victoire</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-40" class="title-link" onclick="openLightbox(40); return false;">
+                        <span class="title-number">40</span>
+                        <span class="title-text">Catégories spéciale de gens</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-41" class="title-link" onclick="openLightbox(41); return false;">
+                        <span class="title-number">41</span>
+                        <span class="title-text">Gouvernement-dimension humaine</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-42" class="title-link" onclick="openLightbox(42); return false;">
+                        <span class="title-number">42</span>
+                        <span class="title-text">Messager Mal.4/Apo.10 va faire 2 choses</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-43" class="title-link" onclick="openLightbox(43); return false;">
+                        <span class="title-number">43</span>
+                        <span class="title-text">Le jour du Seigneur</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-44" class="title-link" onclick="openLightbox(44); return false;">
+                        <span class="title-number">44</span>
+                        <span class="title-text">Ce prophète en son propre nom</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-45" class="title-link" onclick="openLightbox(45); return false;">
+                        <span class="title-number">45</span>
+                        <span class="title-text">Message court et rapide</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-46" class="title-link" onclick="openLightbox(46); return false;">
+                        <span class="title-number">46</span>
+                        <span class="title-text">Fin de la fonction de sacrificateur</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-47" class="title-link" onclick="openLightbox(47); return false;">
+                        <span class="title-number">47</span>
+                        <span class="title-text">Privilège de s&#x27;assoir sur le trône</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-48" class="title-link" onclick="openLightbox(48); return false;">
+                        <span class="title-number">48</span>
+                        <span class="title-text">Qui a fait la volonté de Dieu ou pas</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-49" class="title-link" onclick="openLightbox(49); return false;">
+                        <span class="title-number">49</span>
+                        <span class="title-text">Homme agent de Dieu</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-50" class="title-link" onclick="openLightbox(50); return false;">
+                        <span class="title-number">50</span>
+                        <span class="title-text">Un homme qui se respecte</span>
+                    </a>
+                </div>
+                <div class="title-item">
+                    <a href="#lightbox-51" class="title-link" onclick="openLightbox(51); return false;">
+                        <span class="title-number">51</span>
+                        <span class="title-text">C&#x27;est comme la démocratie</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+        
+       
+    </div>
+    
+    <!-- Lightboxes -->
+    <div id="lightbox-1" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>01. Romains 8:19</h2>
+                <button class="close-btn" onclick="closeLightbox(1)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Aussi la création attend-elle avec un ardent désir la révélation des fils de Dieu.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-2" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>02. J&#x27;espère et j&#x27;ai confiance</h2>
+                <button class="close-btn" onclick="closeLightbox(2)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>63-0317M_Dieu se cache, puis se révèle dans la simplicité: 429</p>
+<p>...J’espère et j&#x27;ai confiance que ce Message produira ce qu’Il était destiné à produire,...</p>
+<img src="images/WMB.jpg" alt="Image: WMB.jpg" class="content-image" data-image-id="img_0">
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-3" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>03. La vision que nous avons aujourd&#x27;hui</h2>
+                <button class="close-btn" onclick="closeLightbox(3)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>65-0718M_Rendre un service à Dieu en dehors de sa volonté:150</p>
+<p>Eh bien, regardons à la vision que nous avons aujourd&#x27;hui. Est-ce construire des églises? Est-ce de nouvelles choses? Est-ce que ce sont de grandes choses qui vont arriver, ou est-ce le jugement?...</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-4" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>04. Les saints jugeront la terre...prendre le contrôle</h2>
+                <button class="close-btn" onclick="closeLightbox(4)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>63-0318_Le Prémier Sceau: 115-116</p>
+<p>Ne savez-vous pas que les saints jugeront la terre?» Voyez? Voilà. Les saints vont juger la terre et en prendre le contrôle. C’est vrai. Vous dites: «Comment donc un petit groupe comme celui-là...?» Je ne sais pas comment cela va se faire. Mais Il a dit que cela va se faire, alors, pour autant que je sache, ça règle la question.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-5" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>05. Le combat s&#x27;annonce chaud et acharné</h2>
+                <button class="close-btn" onclick="closeLightbox(5)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>63-0321_Le Quatrième Sceau: 312</p>
+<p>Maintenant, dans Apocalypse 19, il n’y a pas seulement lui qui se prépare, mais Christ aussi se prépare à l’affronter. Le combat s’annonce chaud et acharné.</p>
+<p>Christ, dans Apocalypse 19... Christ rassemble les Siens; pas des quatre coins de la terre, parce qu’il n’y aura qu’un tout petit reste. Qu’est-ce qu’Il fait? Il les rassemble des quatre coins du Ciel. Demain soir, on va prendre «les âmes sous l’autel», et vous allez voir si c’est vrai ou pas. Des quatre coins du Ciel; sur un cheval blanc comme neige!</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-6" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>06. Pourchassé et persécuté</h2>
+                <button class="close-btn" onclick="closeLightbox(6)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Exposé des Sept Âges de l&#x27;Église: page 352</p>
+<p>Cet Âge de Laodicée se termine par une disparition complète de la Parole, ce qui oblige le Seigneur à se retirer. Il est à l&#x27;extérieur, d&#x27;où Il appelle les Siens, ceux qui Le suivent en obéissant à la Parole. Après une manifestation puissante de l&#x27;Esprit pendant un court moment, ce petit groupe pourchassé et persécuté ira rejoindre Jésus.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-7" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>07. Ils vont à sa rencontre - leur choix à eux</h2>
+                <button class="close-btn" onclick="closeLightbox(7)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>63-0321_Le Quatrième Sceau :315</p>
+<p>Ceux qui sont avec Lui montent des chevaux blancs aussi, et ils sont appelés «les élus avant la fondation du monde». Amen! Et ils sont fidèles à la Parole. Amen! Fiou! J’aime cette appellation: «Elus, avant la fondation du monde», et ensuite fidèles à la Parole, par leur propre choix, remplis de la stimulation du vin nouveau et de l’Huile, et ils continuent leur chevauchée, ils vont à Sa rencontre. Evidemment, ils savent que les Tonnerres ne vont pas tarder à dévoiler la chose. Voyez?</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-8" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>08. Reprendre le pouvoir</h2>
+                <button class="close-btn" onclick="closeLightbox(8)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>60-0522E_L&#x27;Adoption: 76</p>
+<p>Et il a perdu sa position de dieu, il a perdu sa position de fils, il a perdu son empire, et Satan a pris le pouvoir. Mais, frère, nous attendons les manifestations des fils de Dieu, qui vont revenir, reprendre le pouvoir. Nous attendons la plénitude du temps, quand la pyramide arrivera à son sommet, quand les fils de Dieu seront pleinement manifestés, quand la puissance de Dieu ira de l’avant (alléluia) et retirera à Satan tous les pouvoirs qu’il a. Oui monsieur, c’est à lui.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-9" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>09. Attendez que ces Sept Tonnerres fassent entendre</h2>
+                <button class="close-btn" onclick="closeLightbox(9)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Quatrième Sceau: 180</p>
+<p>Attendez que ces Sept Tonnerres fassent entendre leurs voix à ce groupe qui est vraiment capable de prendre la Parole de Dieu et La manier, là. Elle va trancher et couper. Et ils peuvent fermer les cieux. Ils peuvent fermer ceci, ou faire cela, tout ce qu’ils veulent. Gloire! Il sera tué par la Parole qui sort de la bouche de Dieu, qui est plus tranchante qu’une épée à deux tranchants. Ils pourraient faire apparaître cent milliards de tonnes de mouches s’ils le voulaient. Amen. Tout ce qu’ils vont dire va arriver, parce que c’est la Parole de Dieu, qui sort de la bouche de Dieu. Amen. Toujours, Dieu... C’est Sa Parole, mais Il utilise toujours l’homme pour La faire agir.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-10" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>10. Réveil de l&#x27;Épouse</h2>
+                <button class="close-btn" onclick="closeLightbox(10)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Troisième Sceau: 183</p>
+<p>La–l’Epouse n’a pas encore eu de réveil. Voyez? Il n’y a encore eu aucun réveil là, aucune manifestation de Dieu pour éveiller l’Epouse. Voyez? C’est ce que nous attendons. Il faudra ces Sept Tonnerres inconnus là-bas pour La réveiller de nouveau. Il les enverra. Il l’a promis.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-11" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>11. Besoin de savoir ce qu&#x27;on dit les Sept Tonnerres</h2>
+                <button class="close-btn" onclick="closeLightbox(11)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Exposé des Sept Âges de l&#x27;Église: page 316</p>
+<p>Personne ne sait ce qu&#x27;il y avait dans ces tonnerres. Pourtant, nous avons besoin de le savoir. Et il faudra que ce soit un prophète qui en reçoive la révélation, parce que Dieu n&#x27;a aucun autre moyen d&#x27;apporter Ses révélations de l&#x27;Écriture que par un prophète.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-12" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>12. Quand et comment exécuter</h2>
+                <button class="close-btn" onclick="closeLightbox(12)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>La brèche entre les sept âges de l&#x27;église et les sept Sceaux: 141</p>
+<p>Ça, c’est décrit dans ce Livre scellé de Sept Sceaux dont nous sommes en train de parler maintenant. Très bien. Le Livre de la Rédemption, tout ça, c’est décrit ici. Tout ce que Christ fera à la fin nous sera révélé cette semaine, dans les Sept Sceaux, si Dieu nous le permet. Voyez? Très bien. Ce sera révélé. Et révélé, à mesure que les Sceaux seront brisés et nous serons appelés, alors nous pourrons voir ce qu’est ce grand plan de la rédemption, quand et comment il sera exécuté.</p>
+<p>Tout cela est caché dans ce Livre de mystère, ici. C’est scellé, fermé par Sept Sceaux... Et l’Agneau est donc le Seul qui puisse les briser.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-13" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>13. J&#x27;ai attendu avec impatience</h2>
+                <button class="close-btn" onclick="closeLightbox(13)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Livre Adoption #5: page 170</p>
+<p>Comment allez-vous faire pour y arriver? Tenez-vous tranquilles! Dieu veut placer Son Eglise, les fils et les filles de Dieu. O Dieu, donne-moi de vivre assez longtemps pour le voir, c’est ma prière. C’est tellement proche, que je pourrais presque le toucher de mes mains, on dirait. C’est tout près. C’est ce que j’ai attendu avec impatience, j’attends de voir le moment où on marchera dans la rue, et voyant un homme étendu là, infirme de naissance: “Je n’ai ni argent, ni or.” Oh, attendant les manifestations des fils de Dieu, alléluia, quand Dieu Se fera connaître, quand ils vont enrayer la maladie, qu’ils vont enrayer le cancer, qu’ils vont enrayer les maux.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-14" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>14. Ne crains  point petit troupeau</h2>
+                <button class="close-btn" onclick="closeLightbox(14)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Exposé des Sept Âges de l&#x27;Église: page 61</p>
+<p>“Ne crains point, Jean. Ne crains point, petit troupeau. Tout ce que Je suis, vous en êtes héritiers. Tout Mon pouvoir vous appartient. Ma toute-puissance est à vous, alors que Je suis au milieu de vous. Je ne suis pas venu apporter la crainte et l’échec, mais l’amour, le courage et la capacité. Tout pouvoir M’a été donné, et c’est à vous qu’il appartient de l’utiliser. Prononcez la Parole, et Je l’accomplirai. C’est Mon alliance, et elle est infaillible.”</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-15" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>15. La Parole, seul but: la Rédemption</h2>
+                <button class="close-btn" onclick="closeLightbox(15)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>63-0320_Le Troisième Sceau: 107</p>
+<p>Nous voyons donc que Dieu a dit à Ève que bien longtemps après «la Parole reviendra à toi». Or, comment est-elle tombée? Je veux que ma classe le dise. D’où est-elle tombée? D’où Ève est-elle tombée? De la Parole. Est-ce juste? [L’assemblée dit: «De la Parole».–N.D.E.] La Parole. Et Dieu a dit qu’Il pourvoirait à un moyen pour la racheter et la ramener de nouveau à la Parole. Très bien. Bien longtemps après, la Parole se ferait connaître à elle. Très bien. La Parole allait donc venir dans un seul but. Maintenant, retenez bien ce que je suis en train de dire. La Parole allait venir à elle dans un seul but, celui de la rédemption.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-16" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>16. Ce monde réclame sa rédemption</h2>
+                <button class="close-btn" onclick="closeLightbox(16)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>63-0324E_Le Septième Sceau: 43</p>
+<p>Notre Père céleste, nous voilà arrivé à ce soir glorieux, cette heure glorieuse où quelque chose de glorieux est arrivé. Cela a environné les gens. Et, Père, je prie que, ce soir, ce soit divulgué, sans l’ombre d’un doute, dans le coeur et la pensée des gens, qu’ils sachent que Dieu est toujours sur le Trône, et qu’Il aime toujours Son peuple, et que c’est l’heure–l’heure que le monde a ardemment désiré voir; maintenant elle est proche, car ce monde réclame sa rédemption.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-17" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>17. Jamais eu un temps...fils de Dieu manifestés</h2>
+                <button class="close-btn" onclick="closeLightbox(17)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>60-0522E_L&#x27;Adoption: 19</p>
+<p>Dites-moi, mon frère, dites-moi, ma soeur, quand y a-t-il déjà eu un temps où les fils de Dieu devaient être manifestés, en dehors de maintenant, de ce temps-ci? Quand y a-t-il déjà eu un temps de l&#x27;histoire où ils devaient se manifester, au temps de la délivrance de la nature tout entière? La nature, la nature elle-même soupire, elle attend le temps de la manifestation. Eh bien, avant que l&#x27;expiation ait été faite, avant que le Saint-Esprit ait été déversé pour la première fois, avant tout le - tout l&#x27;Ancien Testament, tout au long des âges, il ne pouvait pas y avoir de manifestations. Il a fallu attendre ce temps-ci. Maintenant, toutes choses ont été amenées, elles arrivent, elles prennent forme vers une pierre principale, vers la manifestation des fils de Dieu, alors qu&#x27;ils reviendront, que l&#x27;Esprit de Dieu entrera dans ces hommes-là d&#x27;une façon si parfaite, que leur ministère sera tellement semblable à celui de Christ, au point de L&#x27;unir avec Son Eglise.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-18" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>18. De tous cotés ils attendent...où sont ces gens?</h2>
+                <button class="close-btn" onclick="closeLightbox(18)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Livre Adoption #III: page 66</p>
+<p>Avec un ardent désir, la création entière attend la manifestation. Vous voyez, la manifestation! La manifestation, qu’est-ce que c’est? C’est de faire connaître! Le monde entier. Les musulmans, là-bas, ils attendent cela. De tous côtés, partout, ils attendent cela. “Où sont ces gens?”</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-19" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>19. Dispensation de l&#x27;adoption</h2>
+                <button class="close-btn" onclick="closeLightbox(19)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Livre Adoption #IV: page 138-139</p>
+<p>Croyez-vous aux dispensations? La Bible le dit: “Dans la dispensation [version anglaise du roi Jacques_N.D.T.] de la plénitude du temps.” La plénitude du temps, qu’est-ce que c’est? Il y a eu la dispensation de, eh bien, il y a eu la dispensation de la loi mosaïque. Il y a eu la dispensation de_de_de Jean-Baptiste. Il y a eu la dispensation de Christ. Il y a eu la dispensation de l’organisation des églises. Il y a eu la dispensation de l’effusion du Saint-Esprit. Maintenant il y a la dispensation de l’adoption, ce que le monde attend, ce après quoi il soupire. “Et lorsque les temps seront accomplis, dans la dispensation de la plénitude du temps.” Cette plénitude du temps, qu’est-ce que c’est? C’est quand les morts ressuscitent, quand la maladie cesse, quand la quand toute la terre cesse de soupirer. “La plénitude de la dispensation du temps.”</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-20" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>20. Accomplir à travers l&#x27;Épouse</h2>
+                <button class="close-btn" onclick="closeLightbox(20)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Exposé des Sept Âges de l&#x27;Église: page 164-165</p>
+<p>Comme Il n’a pas terminé Son oeuvre entière lors de Son ministère terrestre, Il agit maintenant dans l’épouse et à travers elle. Elle le sait, car à l’époque, il n’était pas encore temps pour Lui de faire certaines choses qu’Il doit faire maintenant. Mais maintenant, Il va accomplir à travers l’épouse l’oeuvre qu’Il avait réservée pour ce moment précis.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-21" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>21. La Parole est dans l&#x27;Épouse</h2>
+                <button class="close-btn" onclick="closeLightbox(21)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Exposé des Sept Âges de l&#x27;Église: page 164</p>
+<p>En effet, si la semence est mise en terre, l’eau la ramènera à la vie. En voici le secret. La Parole est dans l’épouse (comme elle était en Marie). L’épouse a la pensée de Christ, car elle sait ce qu’Il veut qu’on fasse de Sa Parole. Elle exécute en Son nom ce que la Parole ordonne, car elle a l’“ainsi dit le Seigneur”.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-22" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>22. Adam a perdu les droits à la vie</h2>
+                <button class="close-btn" onclick="closeLightbox(22)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>La brèche entre les sept âges de l&#x27;église et les Sept Sceaux : 124-125</p>
+<p>Et qui était innocent? Tout homme était né par un acte sexuel, par le sexe, tous. Et le seul qui ne l’était pas avait perdu les droits à la Vie Eternelle et le droit d’être roi sur la terre.</p>
+<p>Oh! quand je pense à ce passage de l’Ecriture: «Car Tu nous as rachetés pour Dieu, et ainsi nous régnerons et serons rois et sacrificateurs sur la terre»! Oh! la la! Que... Le Parent Rédempteur... Oh! quelle belle histoire on pourrait raconter ici!</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-23" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>23. Ses sujets rachetés</h2>
+                <button class="close-btn" onclick="closeLightbox(23)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Prémier Sceau: 159-160</p>
+<p>Mais Il a dit: «Si Mon Royaume était de ce monde, Mes sujets auraient combattu pour Moi. Mon Royaume est en Haut.» Mais Il a dit: «Quand vous priez, priez comme ceci: ‘Que Ton Royaume vienne. Que Ta volonté soit faite sur la terre comme au Ciel.’» Amen. Oui. Combien ceci est glorieux!</p>
+<p>Il a quitté le Trône du Père pour prendre Son propre Trône... Maintenant Il a cessé Son oeuvre d’intercession, Il s’est avancé pour réclamer Son propre Trône, Ses sujets rachetés. C’est pour faire cela qu’Il s’est avancé du Trône.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-24" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>24. Avoir l&#x27;oeil perçant de l&#x27;aigle</h2>
+                <button class="close-btn" onclick="closeLightbox(24)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Quatrième Sceau: 151</p>
+<p>Lorsque vous montez là-haut, il vous faut avoir l’oeil perçant de l’aigle, pour voir ce qui vient et pour savoir ce qu’il faut faire. Or, c’est l’âge de l’aigle qui a révélé Cela. Maintenant, nous voyons que cet âge de l’aigle a été promis dans Apocalypse 10.7 et dans–et dans Malachie 1.4, que c’est dans les derniers jours, (Voyez-vous? c’est exact), qu’il serait là.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-25" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>25. Donnez à Dieu des hommes vaillants</h2>
+                <button class="close-btn" onclick="closeLightbox(25)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>63-0318_Le Prémier Sceau: 383</p>
+<p>Laissez-moi vous dire quelque chose, mon pauvre ami aveugle. Ce n’est pas par l’argent que le monde est gagné, mais par le Sang de Jésus-Christ. Donnez à Dieu des hommes, des hommes vaillants qui vont s’en tenir à cette Parole, qu’ils vivent ou qu’ils meurent; c’est ça qui va vaincre. Les seuls qui pourront vaincre, ce sont ceux dont les noms ont été écrits dans le Livre de Vie de l’Agneau dès la fondation du monde. Ce sont les seuls qui L’écouteront. L’argent n’aura rien à faire avec cela; il les enfoncera encore plus dans les traditions de leurs dénominations.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-26" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>26. La force terrestre</h2>
+                <button class="close-btn" onclick="closeLightbox(26)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>62-0318E_La Parole parlée est la semence originelle #2: 375</p>
+<p>Où se trouvera le gouvernement, sur quoi ? Sur les épaules, sur Son Corps. « Le gouvernement sur Ses épaules », c’est une partie du Corps. Qu’est-ce ? Sa force terrestre. La force terrestre de Dieu, c’est Sa Parole faite chair dans Son Corps ici sur terre, par lequel Elle s’accomplit.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-27" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>27. Quelque part dans ce monde</h2>
+                <button class="close-btn" onclick="closeLightbox(27)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>58-1228_Pourquoi La Petite Bethléhem: 135</p>
+<p>Seigneur Dieu, d’un petit groupe des gens qui sont lavés par le cordon de fil cramoisi du Sang du Seigneur Jésus, Tu feras sortir de nouveau Christ à travers ce groupe, Seigneur, quelque part dans ce monde, et Il paîtra toutes les nations avec une verge de fer.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-28" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>28. Dieu et la création attendent</h2>
+                <button class="close-btn" onclick="closeLightbox(28)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>60-0522E_L&#x27;adoption: 36</p>
+<p>Regardez ce qu’il y a eu entre les deux, l’âge de Wesley. Et ce qu’il y a eu après, c’est l’âge pentecôtiste. L’âge pentecôtiste, avec la restitution des dons, des dons spirituels. Maintenant, regardez cet âge qui arrive maintenant, tout en haut, à la Pierre principale. Vous voyez ce que je veux dire? La Venue du Seigneur, où c’est manifesté. Dieu et toute la création attendent que l’église trouve sa position, sa place.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-29" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>29. C&#x27;est la conduite qui met en position</h2>
+                <button class="close-btn" onclick="closeLightbox(29)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>60-0522M_La position en Christ: 72</p>
+<p>Maintenant, donner la place d’un fils. D’abord, après que le fils était arrivé, alors il était un fils, mais ensuite, nous avons vu que c’est sa conduite qui le mettait en position d’être adopté, c’est-à-dire s’il se conduisait comme il faut ou pas.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-30" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>30. Réunir toutes choses: attendre la manifestation des fils</h2>
+                <button class="close-btn" onclick="closeLightbox(30)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>60-0522M_La position en Christ: 169</p>
+<p>Mais pour ce qui est de réunir toutes choses, à la fin de la dispensation, pour ça, il faudra attendre la manifestation des fils de Dieu, dans cette dispensa-alors qu’Il réunira tout,tous ceux qui auront été amenés en Christ.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-31" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>31. Le mystère de sa volonté</h2>
+                <button class="close-btn" onclick="closeLightbox(31)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>60-0522E_L&#x27;adoption: 18</p>
+<p>Je me suis mis à passer d’une référence Biblique à l’autre, et je songeais: “Le mystère, comme c’est mystérieux! Et les Ecritures m’ont amené dans l’Ancien Testament, ensuite elles m’ont ramené dans le Nouveau Testament; l’enchaînement se faisait, pour voir le mystère de Sa Venue, le mystère de Sa volonté, le mystère d’être assis ensemble. Souvenez-vous, on ne peut pas l’enseigner dans aucun séminaire. C’est un mystère. Vous ne pouvez pas le connaître par des études, par la théologie. C’est un mystère qui a été caché depuis la fondation du monde, en attendant la manifestation des fils de Dieu.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-32" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>32. Nous sommes au seuil/parole endossée</h2>
+                <button class="close-btn" onclick="closeLightbox(32)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>60-0522E_L&#x27;adoption: 80</p>
+<p>Retournez à la Genèse, à l’original, qu’en est-il? Maintenant le monde et la nature soupirent, gémissent, tout est en état d’agitation. Comment ça? Pour que les fils de Dieu soient manifestés, quand les véritables fils, les fils nés, les fils remplis, parlent et que leur parole est endossée. Je crois que nous sommes au seuil de cela en ce moment. Oui monsieur. Dire à cette montagne, et qu’il en soit ainsi.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-33" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>33. Rien n&#x27;est caché à l&#x27;Église qui hérite de la terre</h2>
+                <button class="close-btn" onclick="closeLightbox(33)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>59-0301M_Étroite est la porte: 70</p>
+<p>Oh! ce matin nous avons le droit, Église, de connaître les secrets de la Venue du Seigneur, car le... Heureux ceux qui procurent la paix, ils seront appelés fils de Dieu! Heureux ceux qui ont faim et soif, ils seront rassasiés. Heureux ceux qui ont le coeur pur, car ils verront Dieu. Heureux les débonnaires, car ils hériteront la terre.» Si donc l’Eglise du Dieu vivant doit hériter la terre, aucun secret ne lui est caché.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-34" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>34. Ce monde réclame sa rédemption</h2>
+                <button class="close-btn" onclick="closeLightbox(34)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>63-0324E_Le Septième Sceau: 43</p>
+<p>Notre Pére céleste, nous voila arrivé a ce soir glorieux, cette heure glorieuse ou quelque chose de glorieux est arrivé. Cela a environné les gens. Et, Père, je prie que, ce soir, ce soit divulgué, sans l’ombre d’un doute, dans le coeur et la pensée des gens, qu’ils sachent que Dieu est toujours sur le Trône, et qu’ll aime toujours Son peuple, et que c’est l’heure—l’heure que le monde a ardemment désiré voir; maintenant elle est proche, car ce monde réclame sa rédemption.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-35" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>35. Cacherai-je à Abraham-héritier du monde</h2>
+                <button class="close-btn" onclick="closeLightbox(35)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>58-0618_Écriture sur la muraille: 30</p>
+<p>Et Abraham avait cent ans, et Sara, quatre-vingt-dix à ce moment-là. Et Sara était derrière l’Ange, c’est ce que déclare la Bible. Elle était dans la tente, et la tente était derrière l’Ange, et l’Ange a dit: «Cacherai-Je à Abraham ce qui va arriver, étant donné qu’il est l’héritier du monde ?» Et Il a dit: «Je te visiterai, à cette même époque (les vingt-huit jours de Sara), et vous allez avoir cet enfant que vous avez attendu.»</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-36" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>36. Se fera en dehors des mouvements organisés</h2>
+                <button class="close-btn" onclick="closeLightbox(36)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Exposé des Sept Âges de l&#x27;Église: page 225</p>
+<p>Dieu a agi en dehors des groupes pentecôtistes, en dehors des mouvements organisés, et ce qu’Il fera à l’avenir se fera également en dehors des mouvements organisés. Dieu ne peut pas se servir des morts pour agir. Il ne peut agir que par les membres VIVANTS. Ces membres vivants sont hors de Babylone.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-37" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>37. Ce que ce dernier Message serait</h2>
+                <button class="close-btn" onclick="closeLightbox(37)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Troisième Sceau: 197</p>
+<p>...Dieu lui a promis par Jean le révélateur, par tous ces prophètes, exactement ce que ce dernier Message serait.</p>
+<p>...Vous voyez, exactement ce qui arriverait maintenant! Et, pour l’église, qu’est-ce que C’est? La Parole incarnée faite de nouveau chair au milieu de Son peuple, vous voyez, et ils ne Le croient tout simplement pas.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-38" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>38. Ce qu&#x27;il nous faut au capitole</h2>
+                <button class="close-btn" onclick="closeLightbox(38)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Livre Adoption #I: page 12</p>
+<p>Ce qu’il nous faut, ici, au Capitole des États-Unis, comme Président, ce qu’il nous faut au Congrès, ce qu’il nous faut dans nos tribunaux, ce sont des hommes qui ont consacré leur vie à Dieu, qui sont remplis du Saint-Esprit et qui sont conduits par Sa direction Divine.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-39" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>39. Le caractère est une victoire</h2>
+                <button class="close-btn" onclick="closeLightbox(39)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Exposé des Sept Âges de l&#x27;Église: page 112</p>
+<p>Il faut souffrir pour pouvoir régner. La raison en est qu’on ne peut tout simplement pas former un caractère sans souffrance. Le caractère est une VICTOIRE, pas un don. Un homme qui n’a pas le caractère ne peut pas régner, car la puissance sans le caractère, c’est satanique. Mais la puissance avec le caractère est apte à régner. Et, puisqu’Il veut que nous partagions même Son trône, tout comme Lui a vaincu et s’est assis sur le trône de Son Père, alors, nous aussi, nous devons vaincre pour nous asseoir avec Lui.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-40" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>40. Catégories spéciale de gens</h2>
+                <button class="close-btn" onclick="closeLightbox(40)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Exposé des Sept Âges de l&#x27;Église: page 16</p>
+<p>Vous vous en souvenez, j&#x27;ai dit au début de ce message que ce Livre que nous étudions est en fait la révélation de Jésus Lui-même dans l’Église et de Son œuvre dans les âges à venir.</p>
+<p>J’ai ensuite mentionné que le Saint-Esprit doit nous donner la révélation, sans quoi nous ne pouvons pas la recevoir. Ces deux pensées réunies, vous pouvez voir que l’étude ordinaire et la simple réflexion ne suffiront pas à faire de ce Livre une réalité. Il faudra pour cela l’œuvre du Saint-Esprit. Ceci pour dire que ce Livre ne peut être révélé qu’à une catégorie spéciale de gens. Il faudra pour cela quelqu’un qui a la faculté du discernement prophétique. Cela nécessitera une capacité d’écouter Dieu parler. Cela nécessitera un enseignement surnaturel, pas seulement d’étudier en comparant un verset à l’autre, bien que ce soit une bonne chose. Mais un mystère nécessite l’enseignement de l’Esprit, sans quoi il ne sera jamais clair.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-41" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>41. Gouvernement-dimension humaine</h2>
+                <button class="close-btn" onclick="closeLightbox(41)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Exposé des Sept Âges de l&#x27;Église: page 116-117</p>
+<p>Il était réellement Dieu. Mais un jour, ils ont regardé autour d’eux, et ils ont vu les Philistins et d’autres nations qui étaient gouvernées par des rois. Cela a attiré leur attention, et ils ont décidé qu’il fallait qu’ils donnent une dimension humaine à leur gouvernement, alors ils ont voulu avoir un roi. Or, Dieu allait Lui-même donner cette dimension humaine à leur gouvernement par la-Personne du Seigreur Jésus-Christ, mais ils L’ont devancé. Satan connaissait le plan de Dieu, c’est pourquoi il a mis dans le cœur des gens le désir de devancer Dieu (la Parole).</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-42" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>42. Messager Mal.4/Apo.10 va faire 2 choses</h2>
+                <button class="close-btn" onclick="closeLightbox(42)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Exposé des Sept Âges de l&#x27;Église: page 319-320</p>
+<p>Or, ce messager de Malachie 4 et d’Apocalypse 10.7 va faire deux choses.</p>
+<p>Premièrement : selon Malachie 4, il ramènera les cœurs des enfants aux pères.</p>
+<p>Deuxièmement : il révélera les mystères des sept tonnerres d’Apocalypse 10, qui sont les révélations contenues dans les sept sceaux. Ce seront ces “vérités-mystères”  Divinement révélées qui ramèneront littéralement les cœurs des enfants aux pères de la Pentecôte. Exactement.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-43" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>43. Le jour du Seigneur</h2>
+                <button class="close-btn" onclick="closeLightbox(43)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Exposé des Sept Âges de l&#x27;Église: page 46</p>
+<p>Ce n’est certainement pas aujourd’hui le Jour du Seigneur. Aujourd’hui, c’est le jour de l&#x27;homme. Ce sont les actions des hommes, les œuvres des hommes, l’Église des hommes, le culte selon les idées des hommes, tout est de l’homme, car c’est le monde de l’homme (le kosmos). MAIS LE JOUR DU SEIGNEUR ARRIVE. Oui, assurément. Simplement, au moment de la Révélation de Jésus-Christ, Jean a été ravi par l’Esprit et transporté par l’Esprit jusqu’à ce Grand Jour à venir. Le Jour du Seigneur, ce sera quand les jours des hommes seront terminés. Les royaumes de ce monde deviendront alors les royaumes de notre Dieu. Le Jour du Seigneur, c’est quand les jugements s’abattront, après quoi viendra le millénium.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-44" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>44. Ce prophète en son propre nom</h2>
+                <button class="close-btn" onclick="closeLightbox(44)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Exposé des Sept Âges de l&#x27;Église: page 356</p>
+<p>Aux jours du septième messager, aux jours de l’Age de Laodicée, ce messager révélera les mystères de Dieu, comme ils ont été révélés à Paul. Il parlera, et ceux qui recevront ce prophète en son propre nom recevront les effets bénéfiques du ministère de ce prophète. Et ceux qui l’écouteront seront bénis, et ils feront partie de cette épouse du dernier jour, ceux dont il est dit dans Apocalypse 22.17 : “L&#x27;Esprit et l’épouse disent : Viens.” Le grain de blé (le Blé-Épouse) qui était tombé en terre à Nicée est redevenu le Blé-Parole de l’origine. Que Dieu soit loué à jamais. Oui, écoutez le prophète de Dieu, authentifié par Dieu, qui vient dans ce dernier âge. Ce qu’il dit de la part de Dieu, l’épouse le dira aussi. L&#x27;Esprit, le prophète et l’épouse diront tous la même chose. Et ce qu’ils diront aura déjà été dit dans la Parole.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-45" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>45. Message court et rapide</h2>
+                <button class="close-btn" onclick="closeLightbox(45)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>65-0815_Et tu ne le sais pas: 49</p>
+<p>Je suis seulement en train de construire. L&#x27;heure est proche où vous allez voir quelque chose arriver, où il va arriver quelque chose. Et toute cette toile de fond, ici n&#x27;a fait que poser le fondement d&#x27;un Message court et rapide qui ébranlera toute la nation.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-46" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>46. Fin de la fonction de sacrificateur</h2>
+                <button class="close-btn" onclick="closeLightbox(46)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Exposé des Sept Âges de l&#x27;Église: page 50-51</p>
+<p>C’est le Jour du Seigneur; en effet, Jean Le voit, non comme sacrificateur, mais comme le Juge qui vient. Il ne porte plus la ceinture d’or autour de la taille, comme le fait le sacrificateur qui sert Dieu dans le Lieu très saint, mais Il la porte maintenant autour des épaules, car Il est à présent le JUGE, et non plus le sacrificateur. Jean 5.22 est maintenant accompli : “Le Père ne juge personne, mais Il a remis tout jugement au Fils.” Son service est accompli. La fonction de sacrificateur a pris fin. Les jours de la prophétie sont accomplis. Il est ceint comme JUGE.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-47" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>47. Privilège de s&#x27;assoir sur le trône</h2>
+                <button class="close-btn" onclick="closeLightbox(47)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Exposé des Sept Âges de l&#x27;Église: page 352</p>
+<p>Par conséquent, personne ne s’assiéra sur le trône du Seigneur Jésus-Christ sans avoir vécu cette Parole. Toutes vos prières, tous vos jeûnes, toutes vos repentances, — quoi que vous apportiez à Dieu, — rien de tout cela ne vous donnera le privilège de vous asseoir sur ce trône. Ce ne sera accordé qu’à l’Épouse-PAROLE. Comme la reine partage le trône du roi, parce qu’elle est unie à lui, de même les seuls qui partageront le trône seront ceux qui sont de cette Parole, comme Il est, Lui, de cette Parole.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-48" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>48. Qui a fait la volonté de Dieu ou pas</h2>
+                <button class="close-btn" onclick="closeLightbox(48)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Exposé des Sept Âges de l&#x27;Église: page 57</p>
+<p>Voilà. Quand Il viendra, cette Parole s’élèvera contre toutes les nations et tous les hommes. Aucun ne pourra s’opposer à elle. Elle révélera ce qu’il y a dans chaque coeur, comme II l’a fait pour Nathanaël. La Parole de Dieu montrera qui a fait la volonté de Dieu et qui ne l’a pas faite. Elle révélera les actions secrètes de chaque homme et la raison pour laquelle il les a faites.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-49" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>49. Homme agent de Dieu</h2>
+                <button class="close-btn" onclick="closeLightbox(49)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Quatrième Sceau: 180-181</p>
+<p>Toujours, Dieu... C’est Sa Parole, mais Il utilise toujours l’homme pour La faire agir.</p>
+<p>Dieu aurait pu ordonner que les mouches apparaissent en Egypte, mais Il a dit: «Moïse, c’est ton travail. Je vais juste te dire quoi faire, et va le faire.» Il l’a pleinement accompli. Voyez? Il–Il aurait pu choisir de les faire apparaître par le soleil, Il aurait pu faire que ce soit la lune qui les fasse apparaître, ou que le vent le fasse, mais Il–Il a dit: «Moïse...» Cela–cela... Il choisit les hommes. Très bien.</p>
+<p>-</p>
+<p>50-0227_Dieu dans son peuple: 23</p>
+<p>Dieu ne descend pas sur les dénominations. Dieu ne descend pas sur les appareils mécaniques. Dieu, le Saint-Esprit, descend sur les hommes. L&#x27;homme est l&#x27;agent de Dieu, et la chose la plus difficile que Dieu ait jamais eu à faire, c&#x27;était d&#x27;amener un mortel à croire un autre. Croyez-vous cela?</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-50" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>50. Un homme qui se respecte</h2>
+                <button class="close-btn" onclick="closeLightbox(50)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>La brèche entre les sept âges de l&#x27;église et les sept Sceaux: 109</p>
+<p>Tout homme qui se respecte se battrait pour défendre les droits qu’il a reçus de Dieu.</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="lightbox-51" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <h2>51. C&#x27;est comme la démocratie</h2>
+                <button class="close-btn" onclick="closeLightbox(51)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <p>Cinquième Sceau: 171</p>
+<p>C’est exactement comme la démocratie, on trouve qu’elle est bonne. Je le crois aussi, mais ça ne marchera jamais comme il faut. Ça ne peut pas. Avec cette bande de Ricky qui en assume la direction. Comment donc parviendrez-vous à faire marcher ça parfaitement? Impossible. Remarquez, la seule chose convenable, c’était d’avoir un roi ayant la crainte de Dieu.</p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bouton Top -->
+    <button id="topBtn" class="top-btn" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script>
+        function openLightbox(id) {
+            event.preventDefault();
+            document.getElementById('lightbox-' + id).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox(id) {
+            document.getElementById('lightbox-' + id).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Fermer avec ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('.lightbox').forEach(function(lightbox) {
+                    lightbox.style.display = 'none';
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Fermer en cliquant en dehors
+        document.querySelectorAll('.lightbox').forEach(function(lightbox) {
+            lightbox.addEventListener('click', function(event) {
+                if (event.target === this) {
+                    this.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+        
+      
+        
+        // Initialiser toutes les lightboxes comme cachées
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.lightbox').forEach(function(lightbox) {
+                lightbox.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html></article></main>
+<footer class="site-footer"><div class="container">Thème: Pépites</div></footer>
+<script src="../assets/site.js"></script>
+</body></html>

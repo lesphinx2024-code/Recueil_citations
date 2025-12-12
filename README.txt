@@ -1,0 +1,7 @@
+Site généré automatiquement.
+Structure:
+ - index.html
+ - assets/style.css
+ - assets/site.js
+ - <page-folder>/index.html
+ - <page-folder>/<subpage>.html
